@@ -11,7 +11,6 @@ const setDeviceWarningRouter = require('./src/routes/setDeviceWarning')
 const isBeingEditedRouter = require('./src/routes/isBeingEdited')
 const indexRouter = require('./src/routes/index')
 const mainRouter = require('./src/routes/main')
-// const dbConnect = require('./src/config/dbConnect')
 const PORT = process.env.PORT
 const cors = require('cors')
 const sequelize = require('./src/config/db')
