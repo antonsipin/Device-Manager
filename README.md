@@ -21,7 +21,8 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
   
   <h3> 
   How to start the app locally:
-  </h3> 
+  </h3>
+  
   <p>
   <ul>
     <li>
