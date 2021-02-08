@@ -79,7 +79,6 @@ const changeStatus = async (req, res) => {
 const addDevice = async (req, res) => {
 
   const { device } = req.body
-  console.log('device>>>',device)
 
   try {
 
