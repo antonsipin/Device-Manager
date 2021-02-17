@@ -21,8 +21,7 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
   <h3> 
   How to start the app locally:
   </h3>
-  
-  <p>
+    <p>
   <ul>
     <li>
       Clone this repo <b><i> git clone git@github.com:antonsipin/Device-Master.git </i></b>
