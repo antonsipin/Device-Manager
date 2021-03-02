@@ -2,6 +2,7 @@
 
 <p> The application allows you to add, enable and disable devices, update and remove devices, and also performs several checks:
   
+  
   <ul>
  <li> Checking the uniqueness of the device on the page - if the device is not unique, then the application will report it 
  </li>  
