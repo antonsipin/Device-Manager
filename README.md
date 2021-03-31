@@ -5,13 +5,11 @@
  <li> Checking the uniqueness of the device on the page - if the device is not unique, then the application will report it 
  </li>  
   
-  
  <li> Checking the safe device update: if the device is turned on, the application does not allow updating the device and displays a message to turn off the device before updating. 
   </li> 
   </ul>
  Information about the added devices is recorded in the database.
   </p>
-    
     
  <h3>
 Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thunk, REST API.
