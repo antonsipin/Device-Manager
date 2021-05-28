@@ -53,7 +53,6 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
   <img src="frontend/public/2.gif" width="800" title="Turn on the device"><br />
   <p>Checking if the device is turned on:</p><br />
   <img src="frontend/public/3.gif" width="800" title="Checking if the device is turned on"><br />
-  
   <p>Update the device:</p><br />
   <img src="frontend/public/4.gif" width="800" title="Update the device"><br />
   <p>Checking if there is already such a device:</p><br />
