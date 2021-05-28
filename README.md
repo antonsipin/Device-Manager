@@ -56,7 +56,6 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
   
   <p>Update the device:</p><br />
   <img src="frontend/public/4.gif" width="800" title="Update the device"><br />
-  
   <p>Checking if there is already such a device:</p><br />
   <img src="frontend/public/5.gif" width="800" title="Checking if there is already such a device"><br />
   
