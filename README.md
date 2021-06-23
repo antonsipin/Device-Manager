@@ -9,8 +9,7 @@
   </ul>
  Information about the added devices is recorded in the database.
   </p>
-  
- <h3>
+  <h3>
  
 Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thunk, REST API.
  
@@ -56,7 +55,6 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
     </li>
   </ul>
   </p> 
-  
   
   <h3 align="center">
  
