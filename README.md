@@ -12,6 +12,7 @@
   <h3>
 Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thunk, REST API.
  </h3> 
+ 
  <h3>
   The app is available on Heroku: https://device-master.herokuapp.com/
   </h3>
