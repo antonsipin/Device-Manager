@@ -47,7 +47,6 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
   </ul>
   </p> 
   
-  
   <h3 align="center">
  
  
