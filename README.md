@@ -8,7 +8,6 @@
   </li> 
   </ul>
  Information about the added devices is recorded in the database.
- 
   </p>
   
   <h3>
