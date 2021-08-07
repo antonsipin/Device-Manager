@@ -50,6 +50,7 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
     </li>
   </ul>
   </p> 
+  
   <h3 align="center">
  
    <p>Add device in the database:</p><br />
