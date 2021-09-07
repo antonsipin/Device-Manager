@@ -49,6 +49,7 @@ Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thun
       Run the app <b><i> npm start </i></b> (The app starts at http://localhost:3000 in browser and you will be able to test the app)
     </li>
   </ul>
+  
   <h3 align="center">
    <p>Add device in the database:</p><br />
   <img src="frontend/public/1.gif" width="800" title="Add device"><br />
