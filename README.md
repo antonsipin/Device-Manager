@@ -12,7 +12,6 @@
   
   <h3>
 Techs: HTML, CSS, JavaScript, Express.js, Node.js, PostgreSQL, React, Redux-Thunk, REST API.
- 
  </h3> 
  
  <h3>
