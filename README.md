@@ -58,5 +58,4 @@
   <img src="frontend/public/5.gif" width="800" title="Checking if there is already such a device"><br />
   <p>Delete the device from the database:</p><br />
   <img src="frontend/public/6.gif" width="800" title="Delete the device"><br />
- 
   </h3>
