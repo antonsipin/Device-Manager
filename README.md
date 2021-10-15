@@ -14,7 +14,6 @@
  <h3>
  The app is available on Heroku: https://device-master.herokuapp.com/
 </h3>
-  
   <h3> 
    How to start the app locally:
   </h3>
