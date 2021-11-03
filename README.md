@@ -50,7 +50,6 @@
   </ul>
   
   <h3 align="center">
- 
    <p>Add device in the database:</p><br />
   <img src="frontend/public/1.gif" width="800" title="Add device"><br />
    <p>Turn on the device:</p><br />
