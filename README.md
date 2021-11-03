@@ -63,5 +63,4 @@
   <p>Delete the device from the database:</p><br />
   <img src="frontend/public/6.gif" width="800" title="Delete the device"><br />
  
- 
   </h3>
