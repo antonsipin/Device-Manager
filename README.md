@@ -16,7 +16,6 @@
 
  <h3>
  The app is available on Heroku: https://device-master.herokuapp.com/
- 
 </h3>
 
   <h3> 
