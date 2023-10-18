@@ -47,7 +47,6 @@
   </ul>
 </p>
   
-  <h3 align="center">
     <p>Add device in the database:</p><br />
       ![1](https://github.com/antonsipin/Device-Manager/assets/46906477/bf454da7-cd55-461c-bdbf-586252afcb38)
     <p>Turn on the device:</p><br />
@@ -60,4 +59,3 @@
       <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/5.gif" width="800" title="Checking if there is already such a device">
     <p>Delete the device from the database:</p><br />
       <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/6.gif" width="800" title="Delete the device">
-  </h3>
