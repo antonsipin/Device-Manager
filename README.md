@@ -48,9 +48,8 @@
 </p>
   
   <h3 align="center">
-      ![alt text](https://github.com/antonsipin/Device-Manager/blob/master)
     <p>Add device in the database:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif" width="800" title="Add device">
+      ![1](https://github.com/antonsipin/Device-Manager/assets/46906477/bf454da7-cd55-461c-bdbf-586252afcb38)
     <p>Turn on the device:</p><br />
       <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/2.gif" width="800" title="Turn on the device">
     <p>Checking if the device is turned on:</p><br />
