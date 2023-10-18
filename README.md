@@ -49,15 +49,15 @@
   
   <h3 align="center">
     <p>Add device in the database:</p><br />
-      <img src="https://github.com/antonsipin/Device-Manager/master/frontend/public/1.gif" width="600" title="Add device">
+      <img src="https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/1.gif" width="800" title="Add device">
     <p>Turn on the device:</p><br />
-      <img src="frontend/public/2" width="800" title="Turn on the device">
+      <img src="https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/2.gif" width="800" title="Turn on the device">
     <p>Checking if the device is turned on:</p><br />
-      <img src="frontend/public/3" width="800" title="Checking if the device is turned on">
+      <img src="https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/3.gif" width="800" title="Checking if the device is turned on">
     <p>Update the device:</p><br />
-      <img src="frontend/public/4" width="800" title="Update the device">
+      <img src="https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/4.gif" width="800" title="Update the device">
     <p>Checking if there is already such a device:</p><br />
-      <img src="frontend/public/5" width="800" title="Checking if there is already such a device">
+      <img src="https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/5.gif" width="800" title="Checking if there is already such a device">
     <p>Delete the device from the database:</p><br />
-      <img src="frontend/public/6" width="800" title="Delete the device">
+      <img src="https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/6.gif" width="800" title="Delete the device">
   </h3>
