@@ -49,7 +49,7 @@
   
   <h3 align="center">
     <p>Add device in the database:</p><br />
-      <img src="https://github.com/antonsipin/Device-Manager/blob/master//frontend/public/1.gif?raw=true" width="600" title="Add device">
+      <img src="![alt text](https://github.com/antonsipin/Device-Manager/blob/master//frontend/public/1.gif?raw=true)" width="600" title="Add device">
       ![alt text](https://github.com/antonsipin/Device-Manager/blob/master//frontend/public/1.gif?raw=true)
     <p>Turn on the device:</p><br />
       <img src="frontend/public/2" width="800" title="Turn on the device">
