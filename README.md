@@ -49,7 +49,8 @@
   
   <h3 align="center">
     <p>Add device in the database:</p><br />
-      ![ScreenShot](https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/1.gif)
+      <img src="![ScreenShot](https://raw.githubusercontent.com/antonsipin/Device-Manager/master/frontend/public/1.gif)" width="600" title="Add device">
+      
     <p>Turn on the device:</p><br />
       <img src="frontend/public/2" width="800" title="Turn on the device">
     <p>Checking if the device is turned on:</p><br />
