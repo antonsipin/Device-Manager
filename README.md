@@ -48,10 +48,9 @@
 </p>
   
   <h3 align="center">
-      ![Alt text](https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif)
+      ![Alt text](https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif?sanitize=true)
     <p>Add device in the database:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif" width="800" title="Add device">
-      ![Alt text](https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/2.gif)
+      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif?sanitize=true" width="800" title="Add device">
     <p>Turn on the device:</p><br />
       <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/2.gif" width="800" title="Turn on the device">
     <p>Checking if the device is turned on:</p><br />
