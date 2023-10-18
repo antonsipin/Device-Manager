@@ -18,7 +18,7 @@
   How to start the app locally:
 </h3>
 
-   <p>
+<p>
   <ul>
     <li>
       Clone this repo <b><i> git clone git@github.com:antonsipin/Device-Master.git </i></b>
@@ -45,19 +45,19 @@
       Run the app <b><i> npm start </i></b> (The app starts at http://localhost:3000 in browser and you will be able to test the app)
     </li>
   </ul>
-  </p>
+</p>
   
   <h3 align="center">
     <p>Add device in the database:</p><br />
-      <img src="frontend/public/1.gif" title="Add device">
+      <img src="frontend/public/1" width="800" title="Add device">
     <p>Turn on the device:</p><br />
-      <img src="frontend/public/2.gif" width="800" title="Turn on the device">
+      <img src="frontend/public/2" width="800" title="Turn on the device">
     <p>Checking if the device is turned on:</p><br />
-      <img src="frontend/public/3.gif" width="800" title="Checking if the device is turned on">
+      <img src="frontend/public/3" width="800" title="Checking if the device is turned on">
     <p>Update the device:</p><br />
-      <img src="frontend/public/4.gif" width="800" title="Update the device">
+      <img src="frontend/public/4" width="800" title="Update the device">
     <p>Checking if there is already such a device:</p><br />
-      <img src="frontend/public/5.gif" width="800" title="Checking if there is already such a device">
+      <img src="frontend/public/5" width="800" title="Checking if there is already such a device">
     <p>Delete the device from the database:</p><br />
-      <img src="frontend/public/6.gif" width="800" title="Delete the device">
+      <img src="frontend/public/6" width="800" title="Delete the device">
   </h3>
