@@ -48,7 +48,6 @@
 </p>
   
   <h3 align="center">
-      ![Alt text](https://raw.github.com/antonsipin/Device-Manager/master/frontend/public)
     <p>Add device in the database:</p><br />
       <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif" width="800" title="Add device">
     <p>Turn on the device:</p><br />
