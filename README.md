@@ -49,13 +49,3 @@
   
     <p>Add device in the database:</p><br />
       ![1](https://github.com/antonsipin/Device-Manager/assets/46906477/bf454da7-cd55-461c-bdbf-586252afcb38)
-    <p>Turn on the device:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/2.gif" width="800" title="Turn on the device">
-    <p>Checking if the device is turned on:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/3.gif" width="800" title="Checking if the device is turned on">
-    <p>Update the device:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/4.gif" width="800" title="Update the device">
-    <p>Checking if there is already such a device:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/5.gif" width="800" title="Checking if there is already such a device">
-    <p>Delete the device from the database:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/6.gif" width="800" title="Delete the device">
