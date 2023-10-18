@@ -51,13 +51,13 @@
     <p>Add device in the database:</p><br />
       <img src="https://github.com/antonsipin/Device-Manager/assets/46906477/bf454da7-cd55-461c-bdbf-586252afcb38" width="800" title="Turn on the device">
     <p>Turn on the device:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/2.gif" width="800" title="Turn on the device">
+      <img src="https://github.com/antonsipin/Device-Manager/assets/46906477/e83216bd-de97-4d93-9196-c8c690043e78" width="800" title="Turn on the device">
     <p>Checking if the device is turned on:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/3.gif" width="800" title="Checking if the device is turned on">
+      <img src="https://github.com/antonsipin/Device-Manager/assets/46906477/2dfdc6c7-be5a-4c29-b75f-74eff84cfd5d" width="800" title="Checking if the device is turned on">
     <p>Update the device:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/4.gif" width="800" title="Update the device">
+      <img src="https://github.com/antonsipin/Device-Manager/assets/46906477/c4730c39-d12b-48c5-9605-faaa78d17e6b" width="800" title="Update the device">
     <p>Checking if there is already such a device:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/5.gif" width="800" title="Checking if there is already such a device">
+      <img src="https://github.com/antonsipin/Device-Manager/assets/46906477/9c14b540-b8fc-49dd-9ba8-c7fbd52fdd30" width="800" title="Checking if there is already such a device">
     <p>Delete the device from the database:</p><br />
-      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/6.gif" width="800" title="Delete the device">
+      <img src="https://github.com/antonsipin/Device-Manager/assets/46906477/31063821-7e04-4eb5-a95a-1cc2fba7591d" width="800" title="Delete the device">
   </h3>
