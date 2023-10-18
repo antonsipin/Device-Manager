@@ -50,4 +50,15 @@
   <h3 align="center">
     <p>Add device in the database:</p><br />
       ![Alt text](https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif)
+      <img src="![Alt text](https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/1.gif)" width="800" title="Add device">
+    <p>Turn on the device:</p><br />
+      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/2.gif" width="800" title="Turn on the device">
+    <p>Checking if the device is turned on:</p><br />
+      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/3.gif" width="800" title="Checking if the device is turned on">
+    <p>Update the device:</p><br />
+      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/4.gif" width="800" title="Update the device">
+    <p>Checking if there is already such a device:</p><br />
+      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/5.gif" width="800" title="Checking if there is already such a device">
+    <p>Delete the device from the database:</p><br />
+      <img src="https://raw.github.com/antonsipin/Device-Manager/master/frontend/public/6.gif" width="800" title="Delete the device">
   </h3>
