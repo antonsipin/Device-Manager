@@ -6,7 +6,6 @@ import {
   thunkChangeDevicePower,
   thunkDeleteDevice,
   thunkUpdateDevice,
-  changeEditStatusAC,
   setErrorAC,
   thunkChangeWarningStatus,
   thunkChangeEditStatus
