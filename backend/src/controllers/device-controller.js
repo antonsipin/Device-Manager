@@ -31,8 +31,8 @@ const setDeviceWarning = async (req, res) => {
 const updateDevice = async (req, res) => {
   try {
     const { id, name } = req.body
-    const devicesList = await sequelize.query(`SELECT * from "Devices"`)
-    const names = devicesList[0].map(el => el.name)
+    const [ result ] = await sequelize.query(`SELECT * from "Devices"`)
+    const names = result.map(el => el.name)
 
       if (names.includes(name)) {
          res.status(400).json({ error: 'This name already exists' })
@@ -77,8 +77,8 @@ const changeStatus = async (req, res) => {
 const addDevice = async (req, res) => {
   try {
     const { device } = req.body
-    const devicesList = await sequelize.query(`SELECT name from "Devices"`)
-    const names = devicesList[0].map(el => el.name)
+    const [ result ] = await sequelize.query(`SELECT name from "Devices"`)
+    const names = result.map(el => el.name)
 
       if (names.includes(device)) {
          res.status(400).json({ error: 'This name already exists' })
@@ -98,8 +98,8 @@ const addDevice = async (req, res) => {
 
 const getDevicesList = async (req, res) => {
   try {
-    const devicesList = await sequelize.query('Select * from "Devices"')
-    res.status(200).json(devicesList[0])
+    const [ result ] = await sequelize.query('Select * from "Devices"')
+    res.status(200).json(result)
   } catch (err) {
     res.status(500).json({ 
       result: 'Error' ,
