@@ -3,12 +3,13 @@ import { useDispatch, useSelector  } from 'react-redux'
 import {
   thunkAddDevice,
   thunkGetDevicesList,
-  thunkChangeDeviceStatus,
+  thunkChangeDevicePower,
   thunkDeleteDevice,
   thunkUpdateDevice,
-  thunkSetDeviceWarning,
-  thunkIsBeingEdited,
-  thunkChangeErrorAC
+  changeEditStatusAC,
+  setErrorAC,
+  thunkChangeWarningStatus,
+  thunkChangeEditStatus
 } from '../store/actions'
 import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
@@ -16,8 +17,9 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import FormControl from 'react-bootstrap/FormControl'
 import Card from 'react-bootstrap/Card'
 
+
 function DeviceMaster() {
-  const [value, setValue] = useState(false)
+  const [isInputActive, setIsInputActive] = useState(false)
   const [input, setInput] = useState('')
   const [inputDevice, setInputDevice] = useState('')
   const dispatch = useDispatch()
@@ -26,42 +28,42 @@ function DeviceMaster() {
   
   useEffect(() => {
     dispatch(thunkGetDevicesList())
-  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [])
   
   function saveNewDevice() {
     dispatch(thunkAddDevice(input))
-    setValue(false)
+    setIsInputActive(false)
     setInput('')
   }
 
-  function updateDeviceName(id, name, isBeingEdited) {
-    dispatch(thunkUpdateDevice(id, name))
-    dispatch(thunkIsBeingEdited(id, isBeingEdited))
-    setInputDevice('')
+  function updateDeviceName(id, name, editStatus) {
+    if (name.length) {
+      dispatch(thunkUpdateDevice(id, name))
+      setInputDevice('')
+    } else {
+        dispatch(setErrorAC('Can not add empty name'))
+    }
   }
 
-  function changeStatus(id, status, warning) {
-    dispatch(thunkChangeDeviceStatus(id, status))
-    if (warning === true) {
-      dispatch(thunkSetDeviceWarning(id, warning))
-    }
+  function changePower(id, powerStatus) {
+    dispatch(thunkChangeDevicePower(id, !powerStatus))
   }
 
   function deleteDevice(id) {
     dispatch(thunkDeleteDevice(id))
   }
 
-  function setDeviceWarning(id, warning) {
-    dispatch(thunkSetDeviceWarning(id, warning))
+  function changeEditStatus(id, editStatus, powerStatus, warningStatus) {
+    if (powerStatus) {
+      dispatch(thunkChangeWarningStatus(id, !warningStatus))
+    } else if (!error.length) {
+      dispatch(thunkChangeEditStatus(id, !editStatus))
+    }
   }
 
-  function changeEditStatus(id, isBeingEdited) {
-    dispatch(thunkIsBeingEdited(id, isBeingEdited))
-  }
-
-  function changeErrorStatus() {
-    setValue(true)
-    dispatch(thunkChangeErrorAC())
+  function handleAddDevice() {
+    setIsInputActive(true)
+    dispatch(setErrorAC(''))
   }
 
   return (
@@ -69,76 +71,68 @@ function DeviceMaster() {
       <h2>
         Device Manager
       </h2>
-      <Button onClick={() => changeErrorStatus()} variant="primary" type="submit">
+      <Button onClick={() => handleAddDevice()} variant="primary" type="submit">
         Add Device
       </Button>
       <Container style={divStyle}> <br />
       
-      {value === true ?
+      {isInputActive &&
         <InputGroup className="mb-3" >
-        <FormControl 
-          onChange={(event) => setInput(event.target.value)}
-          placeholder="Enter new device name"
-          aria-describedby="basic-addon2"
-        />
-        <InputGroup.Append>
-        <Button onClick={() => saveNewDevice(input)} variant="primary">Save new device</Button>
-        </InputGroup.Append>
-        </InputGroup> :
-        ''
-        }
-        {error === true ?
-          <h4 style={textStyle}>This device already exists</h4> :
-          ''
+          <FormControl 
+            onChange={(event) => setInput(event.target.value)}
+            placeholder="Enter new device name"
+            aria-describedby="basic-addon2"
+          />
+          <Button onClick={() => saveNewDevice(input)} variant="primary">Save new device</Button>
+        </InputGroup>
+      }
+        {error &&
+          <h4 style={textStyle}>
+            { error }
+          </h4>
         }
         <br />
       </Container>
+
       {devicesList.length > 0 && devicesList.map((el, index) => {
         return (
-          el.status === true ?
         <Container key={index} style={divStyle}>
-        <Card key={index} style={{ backgroundColor: 'red', width: '18.5rem' }}>
-        <Card.Body>
-        <Card.Title>This is {el.name}</Card.Title>
-        {el.warning === true ?
-        <Card.Text>Please turn off the {el.name} before update
-        </Card.Text> :
-        <Card.Text>
-        </Card.Text>
-        }          
-        <Button onClick={() => changeStatus(el.id, el.status, el.warning)} variant="primary">Turn Off</Button>{' '}
-        <Button onClick={() => deleteDevice(el.id)} variant="primary">Delete</Button>{' '}
-        <Button onClick={() => setDeviceWarning(el.id, el.warning)} variant="primary">Update</Button>
-        </Card.Body>
-        </Card> <br />
+          <Card key={index} style={{ backgroundColor: el.status ? 'red' : 'grey', width: '18.5rem' }}>
+          <Card.Body>
+            <Card.Title>
+              This is {el.name}
+            </Card.Title>
+            {el.warning &&
+            <Card.Text>
+              Please turn off the {el.name} device before update
+            </Card.Text>
+            }          
+            <Button onClick={() => changePower(el.id, el.status)} variant="primary">
+              {el.status ? 'Turn Off' : 'Turn On'}
+            </Button>{' '}
+            <Button onClick={() => deleteDevice(el.id)} variant="primary">
+              Delete
+            </Button>{' '}
+            <Button onClick={() => changeEditStatus(el.id, el.isBeingEdited, el.status, el.warning)} variant="primary">
+              Update
+            </Button>
+          </Card.Body>
+          </Card> <br />
+          {el.isBeingEdited &&
+          <InputGroup className="mb-3" >
+            <FormControl 
+              onChange={(event) => setInputDevice(event.target.value)}
+              placeholder="Enter new device name"
+              aria-describedby="basic-addon2"
+            />
+            <InputGroup.Append>
+              <Button onClick={() => updateDeviceName(el.id, inputDevice, el.isBeingEdited)} variant="primary">
+                Save changes
+              </Button>
+            </InputGroup.Append>
+          </InputGroup>
+          }
         </Container>      
-         :
-        <Container key={index} style={divStyle}>
-        <Card key={index} style={{ backgroundColor: 'grey', width: '18.5rem' }}>
-        <Card.Body>
-        <Card.Title>This is {el.name}</Card.Title>
-        <Card.Text>
-        </Card.Text>
-        <Button onClick={() => changeStatus(el.id, el.status, el.warning)} variant="primary">Turn On</Button>{' '}
-        <Button onClick={() => deleteDevice(el.id)} variant="primary">Delete</Button>{' '}
-        <Button onClick={() => changeEditStatus(el.id, el.isBeingEdited)} variant="primary">Update</Button>
-        </Card.Body>
-        </Card> <br />
-          
-        {el.isBeingEdited === true ?
-        <InputGroup className="mb-3" >
-        <FormControl 
-          onChange={(event) => setInputDevice(event.target.value)}
-          placeholder="Enter new device name"
-          aria-describedby="basic-addon2"
-        />
-        <InputGroup.Append>
-          <Button onClick={() => updateDeviceName(el.id, inputDevice, el.isBeingEdited)} variant="primary">Save changes</Button>
-        </InputGroup.Append>
-        </InputGroup> :
-        ''
-        }
-        </Container>
         )
       })}
     </Container>
@@ -153,7 +147,7 @@ const divStyle = {
   display: 'flex',
   alignItems: 'center',
   flexDirection: 'column'
-};
+}
 
 const textStyle = {
   color: 'red'

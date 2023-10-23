@@ -1,162 +1,141 @@
-import { ADD_DEVICE, ADD_DEVICESLIST, ADD_ERROR, CHANGE_ERROR } from './types'
+import { ADD_DEVICE, ADD_DEVICESLIST, SET_ERROR, UPDATE_DEVICE, CHANGE_POWER, DELETE_DEVICE, CHANGE_EDIT_STATUS, SET_WARNING } from './types'
+import * as api from '../api'
 
 export const addDeviceAC = (device) => ({ type: ADD_DEVICE, payload: device })
-
 export const addDevicesListAC = (devicesList) => ({ type: ADD_DEVICESLIST, payload: devicesList })
+export const changePowerAC = (id, powerStatus) => ( { type: CHANGE_POWER, payload: { id, powerStatus } })
+export const setErrorAC = (error) => ({ type: SET_ERROR , payload: error })
+export const setWarningAC = (id, warningStatus) => ({ type: SET_WARNING , payload: { id, warning: warningStatus} })
+export const deleteDeviceAC = (id) => ({ type: DELETE_DEVICE, payload: id })
+export const changeEditStatusAC = (id, status) => ({ type: CHANGE_EDIT_STATUS, payload: { id, status } })
+export const updateDeviceAC = (id, name) => ({ type: UPDATE_DEVICE, payload: { id, name } })
 
-export const notUniqueErrorAC = () => ({ type: ADD_ERROR })
-
-export const thunkChangeErrorAC = () => ({ type: CHANGE_ERROR})
-
-export const thunkIsBeingEdited = (id, isBeingEdited) => async (dispatch) => {
-  
+export const thunkChangeEditStatus = (id, status) => async (dispatch) => {
   if (id) {
-
     try {
-
-    const response = await fetch(`/isBeingEdited`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-      body: JSON.stringify({ id, isBeingEdited }),
-    });
-      let data = await response.json()
-      dispatch(addDevicesListAC(data))
-
-    } catch (e) {
-    console.log(e)
+      api.editStatus(id, status).then((response) => {
+        if (response && response.error) {
+          dispatch(setErrorAC(response.error))
+        } else {
+          dispatch(changeEditStatusAC(id, status))
+        }
+      })
+      } catch (e) {
+        dispatch(setErrorAC(e.message || 'Something went wrong'))
     }
   }
 }
 
-export const thunkSetDeviceWarning = (id, warning) => async (dispatch) => {
-  
+export const thunkChangeWarningStatus = (id, warningStatus) => async (dispatch) => {
   if (id) {
-
     try {
-
-    const response = await fetch(`/setDeviceWarning`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-      body: JSON.stringify({ id, warning }),
-    });
-      let data = await response.json()
-      dispatch(addDevicesListAC(data))
-
-    } catch (e) {
-    console.log(e)
+      api.changeWarningStatus(id, warningStatus).then((response) => {
+        if (response && response.error) {
+          dispatch(setErrorAC(response.error))
+        } else {
+          dispatch(setWarningAC(id, warningStatus))
+        }
+      })
+      } catch (e) {
+        dispatch(setErrorAC(e.message || 'Something went wrong'))
     }
   }
 }
 
 export const thunkUpdateDevice = (id, name) => async (dispatch) => {
-  
-  if (id && name) {
-
+  if (name) {
     try {
-
-    const response = await fetch(`/updateDevice`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-      body: JSON.stringify({ id, name }),
-    });
-      let data = await response.json()
-      dispatch(addDevicesListAC(data))
-
+      api.updateDevice(id, name).then((response) => {
+        if (response && response.error) {
+          dispatch(setErrorAC(response.error))
+        } else {
+          dispatch(updateDeviceAC(id, name))
+          dispatch(setErrorAC(''))
+          dispatch(changeEditStatusAC(id, false))
+        }
+      })
     } catch (e) {
-    console.log(e)
+      dispatch(setErrorAC(e.message || 'Something went wrong'))
     }
+  } else {
+    dispatch(setErrorAC('Can not add empty name'))
   }
 }
 
 export const thunkDeleteDevice = (id) => async (dispatch) => {
-  
   if (id) {
-
     try {
-
-    const response = await fetch(`/deleteDevice`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-      body: JSON.stringify({ id }),
-    });
-      let data = await response.json()
-      dispatch(addDevicesListAC(data))
-
+      api.deleteDevice(id).then((response) => {
+        if (response && response.result === 'Successfully') {
+          dispatch(deleteDeviceAC(id))
+        } else {
+          dispatch(setErrorAC('Something went wrong'))
+        }
+      })
     } catch (e) {
-    console.log(e)
+      dispatch(setErrorAC(e.message || 'Something went wrong'))
     }
   }
 }
 
-export const thunkChangeDeviceStatus = (id, status) => async (dispatch) => {
+export const thunkChangeDevicePower = (id, powerStatus) => async (dispatch) => {
   if (id) {
-
     try {
-
-    const response = await fetch(`/changeStatus`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-      body: JSON.stringify({ id, status }),
-    });
-      let data = await response.json()
-      dispatch(addDevicesListAC(data))
-
+      api.changePower(id, powerStatus).then((response) => {
+        if (response && response.error) {
+          dispatch(setErrorAC(response.error || 'Something went wrong'))
+        } else {
+          dispatch(changePowerAC(id, powerStatus))
+          dispatch(setWarningAC(false))
+          dispatch(changeEditStatusAC(id, false))
+        }
+      })
     } catch (e) {
-    console.log(e)
+      dispatch(setErrorAC(e.message || 'Something went wrong'))
     }
   }
 }
 
 export const thunkGetDevicesList = () => async (dispatch) => {
   try {
-
-    const response = await fetch('/getDevices', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
+    api.getDevices().then((response) => {
+      if (response && response.result === 'Successfully') {
+        const devices = response.data
+        if (devices.length > 0) {
+          dispatch(addDevicesListAC(devices))
+          }
+      } else {
+        if (response.error) {
+          dispatch(setErrorAC(response.error))
+        }
       }
     })
-    let devicesList = await response.json()
-    if (devicesList.length > 0) {
-    dispatch(addDevicesListAC(devicesList))
-    }
+    
   } catch (e) {
-    console.log(e);
+    dispatch(setErrorAC(e.message || 'Something went wrong'))
   }
 }
 
 export const thunkAddDevice = (device) => async (dispatch) => {
-
   if (device) {
     try {
-    
-    const response = await fetch(`/addDevice`, {
-    method: 'POST',
-    headers: {
-    'Content-Type': 'application/json'
-    },
-      body: JSON.stringify({ device }),
-    });
-      let data = await response.json()
-
-      if (data.error === 'This name already exists') {
-        dispatch(notUniqueErrorAC())
-      } else {
-
-        dispatch(addDeviceAC(data))
-      }
+      api.addDevice(device).then((response) => {
+        if (response && response.error) {
+          dispatch(setErrorAC(response.error))
+        } else {
+          dispatch(addDeviceAC({
+            name: device,
+            status: false,
+            warning: false,
+            isBeingEdited: false
+          }))
+        }
+      })
+      
     } catch (e) {
-      console.log(e)
+      dispatch(setErrorAC(e.message || 'Something went wrong'))
     }
-  } 
+  } else {
+    dispatch(setErrorAC('Can not add empty name'))
+  }
 } 

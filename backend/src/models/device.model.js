@@ -10,7 +10,7 @@ const device = sequelize.define('Device', {
   },
   name: {
     type: Sequelize.STRING,
-    allowNull: false
+    allowNull: false,
   },
   status: {
     type: Sequelize.BOOLEAN,

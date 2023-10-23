@@ -1,4 +1,8 @@
-export const ADD_DEVICE = 'ADD_DEVICE';
-export const ADD_DEVICESLIST  = 'ADD_DEVICESLIST';
-export const ADD_ERROR  = 'ADD_ERROR';
-export const CHANGE_ERROR  = 'CHANGE_ERROR';
+export const ADD_DEVICE = 'ADD_DEVICE'
+export const UPDATE_DEVICE = 'UPDATE_DEVICE'
+export const CHANGE_POWER = 'CHANGE_POWER'
+export const SET_ERROR  = 'SET_ERROR'
+export const SET_WARNING = 'SET_WARNING'
+export const DELETE_DEVICE  = 'DELETE_DEVICE'
+export const CHANGE_EDIT_STATUS = 'CHANGE_EDIT_STATUS'
+export const ADD_DEVICESLIST  = 'ADD_DEVICESLIST'
