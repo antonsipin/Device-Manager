@@ -1,11 +1,15 @@
 require('dotenv').config()
+const { QueryTypes } = require('sequelize')
 const sequelize = require('../config/db')
 const Device = require('../models/device.model')
 
 const isBeingEdited = async (req, res) => {
   try {
     const { id, status } = req.body
-    await sequelize.query(`UPDATE "Devices" SET "isBeingEdited" = ${status} WHERE id = ${id}`)
+    await sequelize.query('UPDATE "Devices" SET "isBeingEdited"=? WHERE id=?', { 
+      type: QueryTypes.UPDATE,
+      replacements: [ status, id ] 
+    })
     res.status(201).json({ result: 'Successfully', error: ''})
   } catch (err) {
     res.status(500).json({ 
@@ -18,7 +22,10 @@ const isBeingEdited = async (req, res) => {
 const setDeviceWarning = async (req, res) => {
   try {
     const { id, warningStatus } = req.body
-    await sequelize.query(`UPDATE "Devices" SET warning = ${warningStatus} WHERE id = ${id}`)
+    await sequelize.query('UPDATE "Devices" SET warning=? WHERE id=?', {
+      type: QueryTypes.UPDATE,
+      replacements: [ warningStatus, id ]
+    })
     res.status(201).json({ result: 'Successfully', error: ''})
   } catch (err) {
     res.status(500).json({ 
@@ -31,13 +38,16 @@ const setDeviceWarning = async (req, res) => {
 const updateDevice = async (req, res) => {
   try {
     const { id, name } = req.body
-    const [ result ] = await sequelize.query(`SELECT * from "Devices"`)
-    const names = result.map(el => el.name)
+    const devices = await sequelize.query('SELECT * from "Devices"', { type: QueryTypes.SELECT })
+    const names = devices.map(el => el.name)
 
       if (names.includes(name)) {
          res.status(400).json({ error: 'This name already exists' })
       } else {
-        await sequelize.query(`UPDATE "Devices" SET name = '${name}' WHERE id = ${id}`)
+        await sequelize.query('UPDATE "Devices" SET name=? WHERE id=?', {
+          type: QueryTypes.UPDATE,
+          replacements: [name, id]
+        })
         res.status(200).json({ result: 'Successfully', error: ''})
       }
   } catch (err) {
@@ -51,7 +61,10 @@ const updateDevice = async (req, res) => {
 const deleteDevice = async (req, res) => {
   try {
     const { id } = req.body
-    await sequelize.query(`DELETE from "Devices" WHERE id = ${id}`)
+    await sequelize.query('DELETE from "Devices" WHERE id=?', {
+      type: QueryTypes.DELETE,
+      replacements: [ id ]
+    })
     res.status(200).json({ result: 'Successfully', error: ''})
   } catch (err) {
     res.status(500).json({ 
@@ -64,7 +77,10 @@ const deleteDevice = async (req, res) => {
 const changeStatus = async (req, res) => {
   try {
     const { id, powerStatus } = req.body
-    await sequelize.query(`UPDATE "Devices" SET status = ${powerStatus} WHERE id = ${id}`)
+    await sequelize.query('UPDATE "Devices" SET status=? WHERE id=?', {
+      type: QueryTypes.UPDATE,
+      replacements: [ powerStatus, id ]
+    })
     res.status(200).json({ result: 'Successfully', error: ''})
   } catch (err) {
     res.status(500).json({ 
@@ -77,15 +93,17 @@ const changeStatus = async (req, res) => {
 const addDevice = async (req, res) => {
   try {
     const { device } = req.body
-    const [ result ] = await sequelize.query(`SELECT name from "Devices"`)
-    const names = result.map(el => el.name)
+    const devices = await sequelize.query(`SELECT name FROM "Devices"`, { type: QueryTypes.SELECT })
+    const names = devices.map(el => el.name)
 
       if (names.includes(device)) {
          res.status(400).json({ error: 'This name already exists' })
       } else {
             await sequelize.query(
               `INSERT INTO "Devices" (name, status, warning, "isBeingEdited", "createdAt", "updatedAt") VALUES 
-              ('${device}', false, false, false, now(), now()) `)
+              (${device}, false, false, false, now(), now())`, {
+                type: QueryTypes.INSERT
+              })
             res.status(201).json({ result: 'Successfully', error: ''})
         }
   } catch (err) {
@@ -98,8 +116,8 @@ const addDevice = async (req, res) => {
 
 const getDevicesList = async (req, res) => {
   try {
-    const [ result ] = await sequelize.query('Select * from "Devices"')
-    res.status(200).json(result)
+    const DevicesList = await sequelize.query('Select * from "Devices"', { type: QueryTypes.SELECT })
+    res.status(200).json(DevicesList)
   } catch (err) {
     res.status(500).json({ 
       result: 'Error' ,
