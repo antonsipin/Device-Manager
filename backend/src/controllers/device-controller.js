@@ -51,7 +51,7 @@ const updateDevice = async (req, res) => {
 const deleteDevice = async (req, res) => {
   try {
     const { id } = req.body
-    await Device.destroy({ where: { id: id } })
+    await sequelize.query(`DELETE from "Devices" WHERE id = ${id}`)
     res.status(200).json({ result: 'Successfully', error: ''})
   } catch (err) {
     res.status(500).json({ 
@@ -98,8 +98,8 @@ const addDevice = async (req, res) => {
 
 const getDevicesList = async (req, res) => {
   try {
-    const devicesList = await Device.findAll()
-    res.status(200).json(devicesList)
+    const devicesList = await sequelize.query('Select * from "Devices"')
+    res.status(200).json(devicesList[0])
   } catch (err) {
     res.status(500).json({ 
       result: 'Error' ,
