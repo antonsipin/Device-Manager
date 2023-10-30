@@ -5,7 +5,7 @@ const main = async (req, res) => {
   try {
     res.redirect('/getDevices')
   } catch (err) {
-    res.sendStatus(500)
+    res.status(500)
   }
 }
 
