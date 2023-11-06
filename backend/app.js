@@ -23,7 +23,7 @@ async function dbConnect() {
     console.log('Server listening on port: ', PORT)
 })
   } catch (e) {
-    console.log(e);
+    console.log(e.message)
   }
 }
 dbConnect()
