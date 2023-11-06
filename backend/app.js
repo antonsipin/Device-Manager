@@ -14,7 +14,6 @@ const mainRouter = require('./src/routes/main')
 const PORT = process.env.PORT
 const cors = require('cors')
 const sequelize = require('./src/config/db')
-const { QueryTypes } = require('sequelize')
 
 async function dbConnect() {
   try {
