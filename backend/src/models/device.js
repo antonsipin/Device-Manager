@@ -14,10 +14,24 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Device.init({
-    name: DataTypes.STRING,
-    status: DataTypes.BOOLEAN,
-    warning: DataTypes.BOOLEAN,
-    isBeingEdited: DataTypes.BOOLEAN
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    name: {
+      type: DataTypes.STRING
+    },
+    status: {
+      type: DataTypes.BOOLEAN
+    },
+    warning: {
+      type: DataTypes.BOOLEAN
+    },
+    isBeingEdited: {
+      type: DataTypes.BOOLEAN
+    },
   }, {
     sequelize,
     modelName: 'Device',
