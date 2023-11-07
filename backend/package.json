@@ -7,7 +7,10 @@
     "dev": "nodemon --ignore .'sessions/' app.js",
     "start": "node app.js",
     "production": "cross-env NODE_ENV=production node app.js",
-    "test": "npx jasmine --stop-on-failure=true --fail-fast=true --random=false --reporter=jasmine-console-reporter spec/*.js"
+    "test": "npx jasmine --stop-on-failure=true --fail-fast=true --random=false --reporter=jasmine-console-reporter spec/*.js",
+    "migrate": "cd src && npx sequelize db:migrate",
+    "migrate:undo:last": "cd src && npx sequelize db:migrate:undo",
+    "migrate:undo:all": "cd src && npx sequelize db:migrate:undo:all"
   },
   "keywords": [],
   "author": "",
