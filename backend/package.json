@@ -10,7 +10,9 @@
     "test": "npx jasmine --stop-on-failure=true --fail-fast=true --random=false --reporter=jasmine-console-reporter spec/*.js",
     "migrate": "cd src && npx sequelize db:migrate",
     "migrate:undo:last": "cd src && npx sequelize db:migrate:undo",
-    "migrate:undo:all": "cd src && npx sequelize db:migrate:undo:all"
+    "migrate:undo:all": "cd src && npx sequelize db:migrate:undo:all",
+    "dbc": "cd src && npx sequelize db:create",
+    "dbr": "cd src && npx sequelize db:migrate:undo:all && npx sequelize db:migrate"
   },
   "keywords": [],
   "author": "",
