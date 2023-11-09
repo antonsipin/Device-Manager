@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "dev": "nodemon --ignore .'sessions/' app.js",
+    "dev": "nodemon --ignore .'sessions/' app.js --ext jsx,js,json",
     "start": "node app.js",
     "production": "cross-env NODE_ENV=production node app.js",
     "test": "npx jasmine --stop-on-failure=true --fail-fast=true --random=false --reporter=jasmine-console-reporter spec/*.js",
