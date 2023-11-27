@@ -3,7 +3,7 @@ require('dotenv').config()
 const main = async (req, res) => {
 
   try {
-    res.redirect('/getDevices')
+    res.redirect('/devices')
   } catch (err) {
     res.status(500)
   }

@@ -1,6 +1,6 @@
 export const getDevices = async () => {
     try {
-        const response = await fetch('/getDevices', {
+        const response = await fetch('/devices', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ export const getDevices = async () => {
 
 export const addDevice = async (device) => {
     try {
-        const response = await fetch('/addDevice', {
+        const response = await fetch('/devices', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'
@@ -51,8 +51,8 @@ export const addDevice = async (device) => {
 
 export const deleteDevice = async (id) => {
     try {
-        const response = await fetch(`/deleteDevice`, {
-            method: 'POST',
+        const response = await fetch(`/devices`, {
+            method: 'DELETE',
             headers: {
             'Content-Type': 'application/json'
             },
@@ -76,8 +76,8 @@ export const deleteDevice = async (id) => {
 
 export const changePower = async (id, powerStatus) => {
     try {
-        const response = await fetch('/changeStatus', {
-            method: 'POST',
+        const response = await fetch('/devices/status', {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -101,8 +101,8 @@ export const changePower = async (id, powerStatus) => {
 
 export const changeWarningStatus = async (id, warningStatus) => {
     try {
-        const response = await fetch('/setDeviceWarning', {
-            method: 'POST',
+        const response = await fetch('/devices/warning', {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -126,8 +126,8 @@ export const changeWarningStatus = async (id, warningStatus) => {
 
 export const editStatus = async (id, status) => {
     try {
-        const response = await fetch(`/isBeingEdited`, {
-            method: 'POST',
+        const response = await fetch(`/devices/update`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -151,7 +151,7 @@ export const editStatus = async (id, status) => {
 
 export const updateDevice = async (id, name) => {
     try {
-        const response = await fetch(`/updateDevice`, {
+        const response = await fetch(`/devices/update`, {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json'
